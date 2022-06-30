@@ -217,8 +217,9 @@
                 <div class="gplay-content">
                     <div class="col-md-6 info">
                         <h2>Experience the capabilities of our app</h2>
-						<video width="257" height="510" autoplay loop>
-                            <source src="/assets/img/appvid.mp4" type="video/mp4">
+						<video width="257" height="510" autoplay muted loop preload="metadata">
+                            <source src="/assets/img/appvid.mp4" type="video/mp4" id="myVideo" autoplay="autoplay">
+                            Your browser does not support the video tag
                         </video>
                     </div>
                     <div class="col-md-6 thumb">
@@ -304,6 +305,19 @@
         <!-- End Footer Bottom -->
     </footer>
     <!-- End Footer-->
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function(){
+    document.body.addEventListener("touchstart", playVideo);
+    function playVideo() {
+        const video = document.getElementById('myVideo');
+        if(video.playing) {
+        } else {
+            video.play();
+            }
+        }
+    });
+    </script>
 
     <!-- jQuery
     ============================================= -->
